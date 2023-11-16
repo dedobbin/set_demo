@@ -19,15 +19,21 @@ void Set::add(std::string element)
 
 bool Set::contains(std::string element) const
 {
-    std::cout << "Not implemented: contains\n";
-    exit(1);
-    return false;
+    int index = strategy->find(inner, element);
+    return index > 0;
 }
 
 void Set::remove(std::string element)
 {
-    std::cout << "Not implemented: remove\n";
-    exit(1);
+    int index = strategy->find(inner, element);
+    inner.erase(inner.begin() + index);
+
 }
 
+std::ostream& operator<<(std::ostream& os, const Set& set) {
+    for (std::string element : set.inner){
+        os << element << std::endl;
+    }
+    return os;
+}
 

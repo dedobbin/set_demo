@@ -1,15 +1,14 @@
 #include <iostream>
+#include <algorithm>
 #include "strategy/simple_strategy.h"
 
 void SimpleStrategy::add(std::vector<std::string> &list, std::string element) const
 {
-    std::cout << "SimpleStrategy not implemented\n";
-    exit(1);
+    list.push_back(element);
 }
 
-int SimpleStrategy::find(std::vector<std::string> &list, std::string element) const
+int SimpleStrategy::find(const std::vector<std::string> &list, std::string element) const
 {
-    std::cout << "SimpleStrategy not implemented\n";
-    exit(1);
-    return 0;
+    auto it = std::find(list.begin(), list.end(), element);
+    return it != list.end() ? std::distance(list.begin(), it) : -1;
 }
