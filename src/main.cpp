@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
 #include "set.h"
+#include "tests/strategy/simple_strategy.h"
+#include "tests/strategy/binary_search.h"
 
-int main(int argc, char* argv[])
+void demo()
 {
     Set set;
     const std::string target = "aaaa";
@@ -13,5 +15,22 @@ int main(int argc, char* argv[])
     std::cout << "Set contains " << target << "? " << (set.contains(target) ? "yes" : "no") << std::endl;
     set.remove(target);
     std::cout << "Set contains " << target << "? " << (set.contains(target) ? "yes" : "no") << std::endl;
+}
+
+void tests()
+{
+    SimpleStrategyTest::add();
+    SimpleStrategyTest::contains();
+    SimpleStrategyTest::remove();
+
+    BinarySearchTest::add();
+    BinarySearchTest::contains();
+    BinarySearchTest::remove();
+}
+
+int main(int argc, char* argv[])
+{
+    //demo();
+    tests();
     return 0;   
 }

@@ -10,8 +10,9 @@ set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(${PROJECT_NAME} 
     src/main.cpp 
-    src/strategy/simple_strategy.cpp
     src/set.cpp
+    src/strategy/simple_strategy.cpp src/strategy/binary_search.cpp
+    src/tests/strategy/simple_strategy.cpp src/tests/strategy/binary_search.cpp 
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "set_assignment")
