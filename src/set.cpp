@@ -20,7 +20,7 @@ void Set::add(std::string element)
 bool Set::contains(std::string element) const
 {
     int index = strategy->find(inner, element);
-    return index > 0;
+    return index >= 0;
 }
 
 void Set::remove(std::string element)
@@ -28,6 +28,17 @@ void Set::remove(std::string element)
     int index = strategy->find(inner, element);
     inner.erase(inner.begin() + index);
 
+}
+
+int Set::size() const
+{
+    return inner.size();
+}
+
+std::vector<std::string> Set::get_inner_cpy() const
+{
+    // TODO: make sure it's copied lol
+    return inner;
 }
 
 std::ostream& operator<<(std::ostream& os, const Set& set) {

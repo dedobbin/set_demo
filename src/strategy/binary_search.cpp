@@ -4,6 +4,7 @@
 
 void BinarySearch::add(std::vector<std::string> &list, std::string element) const
 {
+    //TODO: get rid of duplicates since we are dealing with a set
     auto it = std::find_if(list.begin(), list.end(), [&](const std::string& str) {
         return str > element;
     });

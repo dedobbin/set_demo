@@ -26,6 +26,7 @@ void tests()
     BinarySearchTest::add();
     BinarySearchTest::contains();
     BinarySearchTest::remove();
+    BinarySearchTest::order();
 }
 
 int main(int argc, char* argv[])

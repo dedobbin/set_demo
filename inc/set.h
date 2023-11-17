@@ -12,6 +12,8 @@ class Set {
         void add(std::string element);
         bool contains(std::string element) const;
         void remove(std::string element);
+        int size() const;
+        std::vector<std::string> get_inner_cpy() const;
         friend std::ostream& operator<<(std::ostream& os, const Set& obj);
     private:
         // Even though lifetime is same as parent, we need ptr for inheritance
