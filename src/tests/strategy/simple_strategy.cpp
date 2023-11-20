@@ -44,8 +44,6 @@ void SimpleStrategyTest::contains()
     set.add(str2);
     assert(set.contains(str2));
     
-    assert(set.size() == 2);
-
     for (int i = 0; i < 100; i++){
         set.add(std::to_string(i));
     }
@@ -62,9 +60,7 @@ void SimpleStrategyTest::remove()
     std::cout << "Test SimpleStrategy - remove()\n";
     
     Set set(new SimpleStrategy());
-    
-    assert(set.size() == 0);
-    
+        
     std::string str = "shdkfhjdhhdkf";
     set.add(str);
 

@@ -18,6 +18,7 @@ void BinarySearch::add(std::vector<std::string> &list, std::string element) cons
 
 int BinarySearch::find(const std::vector<std::string> &list, std::string element) const
 {
-    auto it = std::lower_bound(list.begin(), list.end(), element);
+    std::cout << "Binary search TODO: use binary search" << std::endl;
+    auto it = std::find(list.begin(), list.end(), element);
     return it != list.end() ? std::distance(list.begin(), it) : -1;
 }
