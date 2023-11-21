@@ -78,3 +78,14 @@ void StrategyTest::remove(Strategy* strategy)
     assert(!set.contains("64"));
     assert(set.contains("12"));
 }
+
+void StrategyTest::add_no_duplicates(Strategy* strategy)
+{
+    Set set(strategy);
+    std::string str = "shdkfhjdhhdkf";
+    set.add(str);
+    set.add(str);
+    set.add(str);
+
+    assert(set.size() == 1);
+}

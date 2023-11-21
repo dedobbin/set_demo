@@ -4,8 +4,9 @@
 
 void SimpleStrategy::add(std::vector<std::string> &list, std::string element) const
 {
-    //TODO: get rid of duplicates since we are dealing with a set
-    list.push_back(element);
+    if (!find(list, element)){
+        list.push_back(element);
+    }
 }
 
 int SimpleStrategy::find(const std::vector<std::string> &list, std::string element) const

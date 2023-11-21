@@ -26,10 +26,12 @@ void tests()
     StrategyTest::add(new SimpleStrategy());
     StrategyTest::contains(new SimpleStrategy());
     StrategyTest::remove(new SimpleStrategy());
+    StrategyTest::add_no_duplicates(new SimpleStrategy());
 
     StrategyTest::add(new BinarySearch());
     StrategyTest::contains(new BinarySearch());
     StrategyTest::remove(new BinarySearch());
+    StrategyTest::add_no_duplicates(new BinarySearch());
 }
 
 void benchmarks()
