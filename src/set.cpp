@@ -12,18 +12,18 @@ Set::Set(Strategy* init_strategy)
     strategy = std::unique_ptr<Strategy>(init_strategy);
 }
 
-void Set::add(std::string element)
+void Set::add(const std::string element)
 {
     strategy->add(inner, element);
 }
 
-bool Set::contains(std::string element) const
+bool Set::contains(const std::string element) const
 {
     int index = strategy->find(inner, element);
     return index >= 0;
 }
 
-void Set::remove(std::string element)
+void Set::remove(const std::string element)
 {
     int index = strategy->find(inner, element);
     inner.erase(inner.begin() + index);

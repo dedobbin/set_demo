@@ -9,9 +9,9 @@ class Set {
         Set();
         Set(Strategy* stratergy);
         // TODO: copy constructor and move constructor
-        void add(std::string element);
-        bool contains(std::string element) const;
-        void remove(std::string element);
+        void add(const std::string element);
+        bool contains(const std::string element) const;
+        void remove(const std::string element);
         int size() const;
         std::vector<std::string> get_inner_cpy() const;
         friend std::ostream& operator<<(std::ostream& os, const Set& obj);
