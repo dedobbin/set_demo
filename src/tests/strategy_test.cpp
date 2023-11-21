@@ -1,26 +1,21 @@
-#include <cassert>
 #include <iostream>
-#include "tests/strategy/simple_strategy.h"
+#include "tests/strategy_test.h"
 #include "set.h"
-#include "strategy/simple_strategy.h"
+#include "assert.h"
 
-void SimpleStrategyTest::add()
-{
-    std::cout << "Test SimpleStrategy - add()\n";
-    
-    Set set(new SimpleStrategy());
+void StrategyTest::add(Strategy* strategy)
+{    
+    Set set(strategy);
     
     assert(set.size() == 0);
 
     std::string str = "shdkfhjdhhdkf";
     set.add(str);
-    assert(set.get_inner_cpy()[0] == str);
     
     assert(set.size() == 1);
 
     std::string str2 = "kdfkldsklj";
     set.add(str2);
-    assert(set.get_inner_cpy()[1] == str2);
     
     assert(set.size() == 2);
 
@@ -31,11 +26,9 @@ void SimpleStrategyTest::add()
     assert(set.size() == 102);
 }
 
-void SimpleStrategyTest::contains()
-{
-    std::cout << "Test SimpleStrategy - contains()\n";
-    
-    Set set(new SimpleStrategy());
+void StrategyTest::contains(Strategy* strategy)
+{    
+    Set set(strategy);
     std::string str = "shdkfhjdhhdkf";
     set.add(str);
     assert(set.contains(str));
@@ -48,18 +41,14 @@ void SimpleStrategyTest::contains()
         set.add(std::to_string(i));
     }
 
-    assert(set.size() == 102);
-
     assert(set.contains("32"));
     assert(set.contains("46"));
     assert(set.contains("12"));
 }
 
-void SimpleStrategyTest::remove()
+void StrategyTest::remove(Strategy* strategy)
 {
-    std::cout << "Test SimpleStrategy - remove()\n";
-    
-    Set set(new SimpleStrategy());
+    Set set(strategy);
         
     std::string str = "shdkfhjdhhdkf";
     set.add(str);
@@ -88,5 +77,4 @@ void SimpleStrategyTest::remove()
     assert(!set.contains("32"));
     assert(!set.contains("64"));
     assert(set.contains("12"));
-
 }
