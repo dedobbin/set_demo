@@ -14,7 +14,12 @@ Set::Set(Strategy* init_strategy)
 
 void Set::add(const std::string element)
 {
-    strategy->add(inner, element);
+    // We are dealing with a set, so we don't want duplicates
+    // TODO: This makes performance alot worse, could be combined 
+    //   with the add function to optimize but hard to fit in this structure
+    if (!contains(element)){
+        strategy->add(inner, element);
+    }
 }
 
 bool Set::contains(const std::string element) const
@@ -27,7 +32,6 @@ void Set::remove(const std::string element)
 {
     int index = strategy->find(inner, element);
     inner.erase(inner.begin() + index);
-
 }
 
 int Set::size() const
