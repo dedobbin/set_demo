@@ -37,7 +37,6 @@ int Set::size() const
 
 std::vector<std::string> Set::get_inner_cpy() const
 {
-    // TODO: make sure it's copied lol
     return inner;
 }
 
