@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include "set.h"
+#include "strategy/binary_search.h"
 #include "tests/strategy/simple_strategy.h"
 #include "tests/strategy/binary_search.h"
+#include "benchmarks/strategy_benchmark.h"
+
 
 void demo()
 {
@@ -29,9 +32,28 @@ void tests()
     BinarySearchTest::order();
 }
 
+void benchmarks()
+{
+    int n = 1000;
+    int ms1 = StrategyBenchmark::add(new SimpleStrategy(), n);
+    int ms2 = StrategyBenchmark::add(new BinarySearch(), n);
+    std::cout << "Add: "<< ms1 << " vs " << ms2 << " ms" << std::endl;
+
+    ms1 = StrategyBenchmark::contains(new SimpleStrategy(), n);
+    ms2 = StrategyBenchmark::contains(new BinarySearch(), n);
+    std::cout << "Contains: "<< ms1 << " vs " << ms2 << " ms" << std::endl;
+
+
+    ms1 = StrategyBenchmark::remove(new SimpleStrategy(), n);
+    ms2 = StrategyBenchmark::remove(new BinarySearch(), n);
+    std::cout << "Remove: "<< ms1 << " vs " << ms2 << " ms" << std::endl;
+}
+
 int main(int argc, char* argv[])
 {
     //demo();
-    tests();
+    //tests();
+
+    benchmarks();
     return 0;   
 }
