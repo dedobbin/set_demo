@@ -4,7 +4,9 @@
 
 void SimpleStrategy::add(std::vector<std::string> &list, std::string element) const
 {
-    list.push_back(element);
+    if (find(list, element) < 0){
+        list.push_back(element);
+    }
 }
 
 int SimpleStrategy::find(const std::vector<std::string> &list, std::string element) const

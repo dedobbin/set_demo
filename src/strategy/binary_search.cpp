@@ -4,14 +4,9 @@
 
 void BinarySearch::add(std::vector<std::string> &list, std::string element) const
 {
-    auto it = std::find_if(list.begin(), list.end(), [&](const std::string& str) {
-        return str > element;
-    });
-    
-    if (it!=list.end()){
+    auto it = std::lower_bound(list.begin(), list.end(), element);
+    if (it == list.end() || *it != element) {
         list.insert(it, element);
-    } else {
-        list.push_back(element);
     }
 }
 
