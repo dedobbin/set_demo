@@ -45,6 +45,7 @@ void benchmarks()
     std::cout << "Running benchmarks.." << std::endl;
 
     int n = 10000;
+
     int ms1 = StrategyBenchmark::add(new SimpleStrategy(), n);
     int ms2 = StrategyBenchmark::add(new BinarySearch(), n);
     int ms3 = StrategyBenchmark::add(new HandrolledBinarySearch(), n);

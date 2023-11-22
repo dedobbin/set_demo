@@ -40,7 +40,7 @@ void StrategyTest::contains(Strategy* strategy)
     for (int i = 0; i < 100; i++){
         set.add(std::to_string(i));
     }
-
+    
     assert(set.contains("32"));
     assert(set.contains("46"));
     assert(set.contains("12"));
