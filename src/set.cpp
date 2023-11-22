@@ -15,8 +15,7 @@ Set::Set(Strategy* init_strategy)
 void Set::add(const std::string element)
 {
     // We are dealing with a set, so we don't want duplicates
-    // TODO: This makes performance alot worse, could be combined 
-    //   with the add function to optimize but hard to fit in this structure
+    // TODO: This makes performance alot worse, make it the problem of the strategy for full control there.
     if (!contains(element)){
         strategy->add(inner, element);
     }

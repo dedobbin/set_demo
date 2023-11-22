@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME}
     
     src/strategy/simple_strategy.cpp 
     src/strategy/binary_search.cpp
+    src/strategy/handrolled_binary_search.cpp
 
     src/tests/strategy_test.cpp
 

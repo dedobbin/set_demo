@@ -2,6 +2,7 @@
 #include <string>
 #include "set.h"
 #include "strategy/binary_search.h"
+#include "strategy/handrolled_binary_search.h"
 #include "tests/strategy_test.h"
 #include "benchmarks/strategy_benchmark.h"
 
@@ -32,6 +33,11 @@ void tests()
     StrategyTest::contains(new BinarySearch());
     StrategyTest::remove(new BinarySearch());
     StrategyTest::add_no_duplicates(new BinarySearch());
+
+    StrategyTest::add(new HandrolledBinarySearch());
+    StrategyTest::contains(new HandrolledBinarySearch());
+    StrategyTest::remove(new HandrolledBinarySearch());
+    StrategyTest::add_no_duplicates(new HandrolledBinarySearch());
 }
 
 void benchmarks()
@@ -41,15 +47,18 @@ void benchmarks()
     int n = 10000;
     int ms1 = StrategyBenchmark::add(new SimpleStrategy(), n);
     int ms2 = StrategyBenchmark::add(new BinarySearch(), n);
-    std::cout << "Add: "<< ms1 << " vs " << ms2 << " ms" << std::endl;
+    int ms3 = StrategyBenchmark::add(new HandrolledBinarySearch(), n);
+    std::cout << "Add: "<< ms1 << " vs " << ms2 << " vs " << ms3 << " ms" << std::endl;
 
     ms1 = StrategyBenchmark::contains(new SimpleStrategy(), n);
     ms2 = StrategyBenchmark::contains(new BinarySearch(), n);
-    std::cout << "Contains: "<< ms1 << " vs " << ms2 << " ms" << std::endl;
+    ms3 = StrategyBenchmark::contains(new HandrolledBinarySearch(), n);
+    std::cout << "Contains: "<< ms1 << " vs " << ms2 << " vs " << ms3 << " ms" << std::endl;
 
     ms1 = StrategyBenchmark::remove(new SimpleStrategy(), n);
     ms2 = StrategyBenchmark::remove(new BinarySearch(), n);
-    std::cout << "Remove: "<< ms1 << " vs " << ms2 << " ms" << std::endl;
+    ms3 = StrategyBenchmark::remove(new HandrolledBinarySearch(), n);
+    std::cout << "Remove: "<< ms1 << " vs " << ms2 << " vs " << ms3 << " ms" << std::endl;
 }
 
 int main(int argc, char* argv[])
